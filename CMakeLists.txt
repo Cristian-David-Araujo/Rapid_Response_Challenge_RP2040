@@ -13,6 +13,7 @@ pico_sdk_init()
 add_executable(my_DE3_Project
     main.c
     display7Seg4D.c
+    game.c
 )
 
 # pico_stdlib library. You can add more if they are needed

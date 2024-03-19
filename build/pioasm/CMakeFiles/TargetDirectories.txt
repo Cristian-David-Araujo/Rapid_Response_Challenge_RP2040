@@ -1,0 +1,3 @@
+/home/admin/Projects/University/Digitals3/Projects/Rapid_Response_Challenge_RP2040/build/pioasm/CMakeFiles/pioasm.dir
+/home/admin/Projects/University/Digitals3/Projects/Rapid_Response_Challenge_RP2040/build/pioasm/CMakeFiles/edit_cache.dir
+/home/admin/Projects/University/Digitals3/Projects/Rapid_Response_Challenge_RP2040/build/pioasm/CMakeFiles/rebuild_cache.dir
