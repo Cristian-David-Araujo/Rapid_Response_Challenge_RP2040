@@ -38,16 +38,16 @@ int main() {
         bool current_state[4] = {gpio_get(buttons[0]), gpio_get(buttons[1]), gpio_get(buttons[2]), gpio_get(buttons[3])};
 
         // Check for rising edge and sum values
-        if (current_state[0] && !current_state[0]) {
+        if (current_state[0] && !last_state[0]) {
             number += 1;
         }
-        if (current_state[1] && !current_state[1]) {
+        if (current_state[1] && !last_state[1]) {
             number += 10;
         }
-        if (current_state[2] && !current_state[2]) {
+        if (current_state[2] && !last_state[2]) {
             number += 100;
         }
-        if (current_state[3] && !current_state[3]) {
+        if (current_state[3] && !last_state[3]) {
             number = 0;
         }
 
