@@ -32,7 +32,11 @@ int main() {
     uint8_t diodes[7] = {5, 6, 10, 11, 12, 7, 8};
     display7Seg4D_init(enables, diodes);
 
-    uint16_t bestTime = 100;
+    // Generate random: led and wait time
+    uint8_t randLed = time_us_32() % 3;
+    uint8_t randWaitTime = time_us_32() % 10 + 1;
+
+    uint16_t bestTime = 0;
 
     bool last_state[4] = {false, false, false, false};
     bool start = false;
@@ -45,7 +49,7 @@ int main() {
 
         //Run the game
         if (gpio_get(buttons[3]) || start){
-            game_run(buttons, leds, actualTime_us, &bestTime, &start);
+            game_run(buttons, leds, actualTime_us, &bestTime, &start, &randLed, &randWaitTime);
         }
 
     }
