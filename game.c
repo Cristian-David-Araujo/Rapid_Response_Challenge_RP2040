@@ -39,17 +39,13 @@ void game_run(uint8_t buttons[4], uint8_t leds[3], uint64_t actualTime_us,
     }else if (rising_edge_detector(buttons, button_edge) && randomWaitFinished) {
         if (button_edge[*randLed]) {
             gpio_put(leds[*randLed], false);
-            uint16_t time_ms = (actualTime_us - timePlayer) / 1000;
-            *bestTime = penalizations;
-            // if (time_ms < *bestTime || *bestTime == 0) {
-            //     *bestTime = time_ms ;
-            // }
+            uint16_t time_ms = (actualTime_us - timePlayer) / 1000 + penalizations * 1000;
+            if (time_ms < *bestTime || *bestTime == 0) {
+                *bestTime = time_ms ;
+            }
             secuenceFinished = false;
             randomWaitFinished = false;
             penalizations = 0;
-            for (int i = 0; i < 4; i++){
-                button_edge[i] = false;
-            }
             *start = false;
             *randLed = time_us_32() % 3;
             *randWaitTime = time_us_32() % 10 + 1;
@@ -89,9 +85,8 @@ void generate_secuence(uint8_t leds[3], bool *secuenceFinished, uint32_t *waitTi
     }
 }
 
-bool rising_edge_detector(uint8_t buttons[4], bool button_edge[4])
+bool rising_edge_detector(uint8_t buttons[4], bool last_state[4])
 {
-    static bool last_state[4] = {false, false, false, false};
     for (int i = 0; i < 4; i++) {
 
         if (gpio_get(buttons[i]) && !last_state[i]) {
