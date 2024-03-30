@@ -10,7 +10,6 @@
 
 //Own header files
 #include "display7Seg4D.h"
-#include "game.h"
 
 /**
  * @brief Main program.

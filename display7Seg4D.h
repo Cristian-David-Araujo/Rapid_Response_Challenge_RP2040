@@ -38,7 +38,7 @@ uint8_t* separateDigits(uint16_t number);
 uint8_t* generateEnablesDigit(uint8_t actualDisplay);
 
 /**
- * @brief 
+ * @brief It is responsible for displaying the best time on the 7-segment displays.
  * 
  * @param enables Array with the gpio numbers of the enables of each digit in little endian
  * @param diodes Array with the numbers of the diode gpio's that will be corresponding (A, B, C, D, E, F, G)
